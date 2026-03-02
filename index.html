@@ -36,10 +36,10 @@
   .ember-bg {
     position: fixed; inset: 0; pointer-events: none; z-index: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 100%, #5c1a0033 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 20% 80%, #c45c0022 0%, transparent 60%),
-      radial-gradient(ellipse 30% 20% at 80% 70%, #ff6b1a18 0%, transparent 50%),
-      linear-gradient(180deg, #0a0400 0%, #1a0800 30%, #2d1200 70%, #1a0500 100%);
+      radial-gradient(ellipse 80% 60% at 50% 100%, #7a2a0044 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 80%, #c45c0033 0%, transparent 60%),
+      radial-gradient(ellipse 30% 20% at 80% 70%, #ff6b1a28 0%, transparent 50%),
+      linear-gradient(180deg, #1a0a02 0%, #2a1206 30%, #3d1a08 70%, #2a0e04 100%);
   }
 
   .ember-texture {
@@ -288,7 +288,7 @@
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    background: linear-gradient(145deg, rgba(45,18,0,0.9), rgba(26,8,0,0.95));
+    background: linear-gradient(145deg, rgba(62,26,4,0.88), rgba(38,14,2,0.93));
     border: 1px solid rgba(196,92,0,0.15);
     backdrop-filter: blur(10px);
     transition: transform 0.25s, border-color 0.3s, box-shadow 0.3s;
@@ -427,23 +427,12 @@
 
   /* Liquid glass blur gradient */
   .modal-img-side::after {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(to right, transparent 60%, var(--ember-dark) 100%),
-      linear-gradient(135deg,
-        rgba(255,200,80,0.08) 0%,
-        rgba(196,92,0,0.12) 50%,
-        rgba(255,100,0,0.08) 100%);
+    content: none;
   }
 
   /* Blur band at right edge */
   .modal-img-side .blur-band {
-    position: absolute; top: 0; right: 0; width: 50%; height: 100%;
-    backdrop-filter: blur(16px) saturate(1.2);
-    -webkit-backdrop-filter: blur(16px) saturate(1.2);
-    -webkit-mask: linear-gradient(to right, transparent, black 60%);
-    mask: linear-gradient(to right, transparent, black 60%);
+    display: none;
   }
 
   /* Right side: info */
@@ -451,7 +440,7 @@
     padding: 2rem 1.8rem 1.8rem;
     display: flex; flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(160deg, rgba(45,18,0,0.97), rgba(20,8,0,0.99));
+    background: linear-gradient(160deg, rgba(62,26,4,0.97), rgba(32,12,2,0.99));
     position: relative;
   }
 
@@ -556,7 +545,7 @@
   /* ── No-image placeholder ── */
   .no-img {
     width: 100%; height: 100%;
-    background: linear-gradient(135deg, #3d1a00, #1a0800);
+    background: linear-gradient(135deg, #5a2c08, #2e1204);
     display: flex; align-items: center; justify-content: center;
   }
 
@@ -1126,10 +1115,15 @@
 <div class="cat-wrap" id="catWrap">
   <p class="cat-label">— Explora el menú —</p>
   <nav class="categories" id="catNav">
-    <button class="cat-btn active" onclick="showSection('carnes',this)"><span class="cat-icon">🔥</span>Carnes</button>
+    <button class="cat-btn active" onclick="showSection('hamburguesas',this)"><span class="cat-icon">🍔</span>Hamburguesas</button>
+    <button class="cat-btn" onclick="showSection('picadas',this)"><span class="cat-icon">🍖</span>Picadas</button>
+    <button class="cat-btn" onclick="showSection('perro',this)"><span class="cat-icon">🌭</span>Perro Caliente</button>
+    <button class="cat-btn" onclick="showSection('salchipollo',this)"><span class="cat-icon">🐔</span>Salchipollo</button>
+    <button class="cat-btn" onclick="showSection('choripollo',this)"><span class="cat-icon">🔥</span>Choripollo</button>
+    <button class="cat-btn" onclick="showSection('bebidas',this)"><span class="cat-icon">🥤</span>Bebidas</button>
+    <button class="cat-btn" onclick="showSection('carnes',this)"><span class="cat-icon">🥩</span>Carnes</button>
     <button class="cat-btn" onclick="showSection('entradas',this)"><span class="cat-icon">🍽️</span>Entradas</button>
     <button class="cat-btn" onclick="showSection('acompanantes',this)"><span class="cat-icon">🌿</span>Acompañantes</button>
-    <button class="cat-btn" onclick="showSection('bebidas',this)"><span class="cat-icon">🥤</span>Bebidas</button>
     <button class="cat-btn" onclick="showSection('postres',this)"><span class="cat-icon">🍮</span>Postres</button>
   </nav>
   <div class="cat-scroll-hint" id="scrollHint">
@@ -1141,8 +1135,38 @@
 
 <main>
 
+  <!-- HAMBURGUESAS -->
+  <section class="section active" id="hamburguesas">
+    <h2 class="section-title">Hamburguesas</h2>
+    <div class="menu-grid" id="grid-hamburguesas"></div>
+  </section>
+
+  <!-- PICADAS -->
+  <section class="section" id="picadas">
+    <h2 class="section-title">Picadas</h2>
+    <div class="menu-grid" id="grid-picadas"></div>
+  </section>
+
+  <!-- PERRO CALIENTE -->
+  <section class="section" id="perro">
+    <h2 class="section-title">Perro Caliente</h2>
+    <div class="menu-grid" id="grid-perro"></div>
+  </section>
+
+  <!-- SALCHIPOLLO -->
+  <section class="section" id="salchipollo">
+    <h2 class="section-title">Salchipollo</h2>
+    <div class="menu-grid" id="grid-salchipollo"></div>
+  </section>
+
+  <!-- CHORIPOLLO -->
+  <section class="section" id="choripollo">
+    <h2 class="section-title">Choripollo</h2>
+    <div class="menu-grid" id="grid-choripollo"></div>
+  </section>
+
   <!-- CARNES -->
-  <section class="section active" id="carnes">
+  <section class="section" id="carnes">
     <h2 class="section-title">Carnes a las Brasas</h2>
     <div class="menu-grid" id="grid-carnes"></div>
   </section>
@@ -1205,6 +1229,176 @@
 <script>
 // ── Menu data ──────────────────────────────────────────────
 const menu = {
+  hamburguesas: [
+    {
+      name: "La de Siempre",
+      desc: "Pan Brioche, carne de la casa ahumada, vegetales frescos, jamón de pierna, queso doblecrema, salsa de la casa. Con papas a la francesa.",
+      price: "$14.000",
+      tag: "Clásica",
+      extras: ["Con papas a la francesa"],
+      img: "burger-clasica.jpg"
+    },
+    {
+      name: "Mix del Corral",
+      desc: "Pan Brioche, carne de la casa ahumada, pollo desmechado, vegetales frescos, jamón de pierna, queso doblecrema, salsa de la casa. Con papas a la francesa.",
+      price: "$17.500",
+      tag: "Mix",
+      extras: ["Con papas a la francesa"],
+      img: "burger-mix.jpg"
+    },
+    {
+      name: "Doble Tentación",
+      desc: "Pan Brioche, doble carne ahumada (cerdo o res), vegetales frescos, jamón de pierna, queso cheddar, salsa de la casa. Con papas a la francesa.",
+      price: "$19.000",
+      tag: "Doble",
+      extras: ["Cerdo o res", "Con papas a la francesa"],
+      img: "burger-doble.jpg"
+    },
+    {
+      name: "Brasa Tropical",
+      desc: "Pan Brioche, carne de la casa ahumada, pollo desmechado, piña caramelizada, tocineta ahumada, vegetales frescos, jamón de pierna, queso cheddar, salsa de la casa.",
+      price: "$22.000",
+      tag: "Especial",
+      extras: ["Piña caramelizada", "Con papas a la francesa"],
+      img: "burger-tropical.jpg"
+    },
+    {
+      name: "Tesoro Campesino",
+      desc: "Pan Brioche, carne de la casa ahumada, pollo desmechado, maíz dulce, huevo frito, queso campesino asado, vegetales frescos, jamón de pierna, queso cheddar, salsa de la casa.",
+      price: "$23.000",
+      tag: "Campesino",
+      extras: ["Huevo frito", "Con papas a la francesa"],
+      img: "burger-campesino.jpg"
+    },
+    {
+      name: "Leyenda del Rancho",
+      desc: "Pan Brioche, carne de la casa ahumada, pollo desmechado, chorizo ranchero, mermelada de tocineta, vegetales frescos, jamón de pierna, queso cheddar, salsa de la casa.",
+      price: "$25.000",
+      tag: "Signature",
+      extras: ["Chorizo ranchero", "Mermelada de tocineta"],
+      img: "burger-rancho.jpg"
+    },
+    {
+      name: "Trilogía al Barril",
+      desc: "Pan Brioche, carne de la casa ahumada, pollo desmechado, cerdo al barril, vegetales frescos, jamón de pierna, queso cheddar, salsa de la casa. Con papas a la francesa.",
+      price: "$27.000",
+      tag: "Premium",
+      extras: ["Cerdo al barril", "Con papas a la francesa"],
+      img: "burger-trilogia.jpg"
+    },
+  ],
+  picadas: [
+    {
+      name: "Para Ti",
+      desc: "Papas a la francesa, cerdo, pollo, chorizo ranchero, salchicha tradicional, salchicha ranchera, queso rallado, huevos de codorniz, vegetales, maíz dulce, salsa de la casa.",
+      price: "$25.000",
+      tag: "Personal",
+      extras: ["Un Festín Personal"],
+      img: "picada-personal.jpg"
+    },
+    {
+      name: "Para Dos",
+      desc: "Papas a la francesa, cerdo, pollo, chorizo ranchero, salchicha tradicional, salchicha ranchera, queso rallado, huevos de codorniz, vegetales, maíz dulce, salsa de la casa.",
+      price: "$32.000",
+      tag: "Para 2",
+      extras: ["Un Dúo de Sabores"],
+      img: "picada-dos.jpg"
+    },
+    {
+      name: "Para Tres",
+      desc: "Papas a la francesa, cerdo, pollo, chorizo ranchero, salchicha tradicional, salchicha ranchera, queso rallado, huevos de codorniz, vegetales, maíz dulce, salsa de la casa.",
+      price: "$40.000",
+      tag: "Para 3",
+      extras: ["Una Tertulia de Sabores"],
+      img: "picada-tres.jpg"
+    },
+    {
+      name: "Para Compartir",
+      desc: "Papas a la francesa, cerdo, pollo, chorizo ranchero, salchicha tradicional, salchicha ranchera, queso rallado, huevos de codorniz, vegetales, maíz dulce, salsa de la casa.",
+      price: "$65.000",
+      tag: "Compartir",
+      extras: ["Ideal para 4-5 personas"],
+      img: "picada-compartir.jpg"
+    },
+  ],
+  perro: [
+    {
+      name: "Clásico Artesano",
+      desc: "Pan artesanal, salchicha Zenú, cebolla, papa ripio, jamón de pierna, queso doblecrema, salsas de la casa.",
+      price: "$7.000",
+      tag: "Clásico",
+      extras: [],
+      img: "perro-clasico.jpg"
+    },
+    {
+      name: "Campesino Completo",
+      desc: "Pan artesanal, salchicha Zenú, pollo desmechado, cebolla, papa ripio, jamón de pierna, queso doblecrema, salsas de la casa. Con papas a la francesa.",
+      price: "$10.000",
+      tag: "Completo",
+      extras: ["Con papas a la francesa"],
+      img: "perro-campesino.jpg"
+    },
+    {
+      name: "Americano Sencillo",
+      desc: "Pan artesanal, salchicha americana, cebolla, papa ripio, jamón de pierna, queso doblecrema, salsas de la casa. Con papas a la francesa.",
+      price: "$12.000",
+      tag: "Americano",
+      extras: ["Con papas a la francesa"],
+      img: "perro-americano.jpg"
+    },
+    {
+      name: "Especial con Pollo",
+      desc: "Pan artesanal, salchicha americana, pollo desmechado, cebolla, papa ripio, jamón de pierna, queso doblecrema, salsas de la casa. Con papas a la francesa.",
+      price: "$14.000",
+      tag: "Especial",
+      extras: ["Con papas a la francesa"],
+      img: "perro-pollo.jpg"
+    },
+    {
+      name: "Parrillero Supremo",
+      desc: "Pan artesanal, salchicha americana, cerdo ahumado, pollo desmechado, cebolla, papa ripio, jamón de pierna, queso doblecrema, salsas de la casa. Con papas a la francesa.",
+      price: "$15.000",
+      tag: "Supremo",
+      extras: ["Cerdo ahumado", "Con papas a la francesa"],
+      img: "perro-supremo.jpg"
+    },
+  ],
+  salchipollo: [
+    {
+      name: "Personal",
+      desc: "Papas a la francesa, salchicha, pollo desmechado, vegetales, queso rallado, salsas de la casa.",
+      price: "$13.000",
+      tag: "Para Ti",
+      extras: ["Porción individual"],
+      img: "salchipollo-personal.jpg"
+    },
+    {
+      name: "Para Compartir",
+      desc: "Papas a la francesa, salchicha, pollo desmechado, vegetales, queso rallado, salsas de la casa.",
+      price: "$26.000",
+      tag: "Para Dos",
+      extras: ["Porción doble"],
+      img: "salchipollo-compartir.jpg"
+    },
+  ],
+  choripollo: [
+    {
+      name: "Personal",
+      desc: "Papas a la francesa, chorizo, pollo desmechado, vegetales, queso rallado, salsas de la casa.",
+      price: "$14.000",
+      tag: "Para Ti",
+      extras: ["Porción individual"],
+      img: "choripollo-personal.jpg"
+    },
+    {
+      name: "Para Compartir",
+      desc: "Papas a la francesa, chorizo, pollo desmechado, vegetales, queso rallado, salsas de la casa.",
+      price: "$28.000",
+      tag: "Para Dos",
+      extras: ["Porción doble"],
+      img: "choripollo-compartir.jpg"
+    },
+  ],
   carnes: [
     {
       name: "Churrasco a la Brasa",
@@ -1212,7 +1406,7 @@ const menu = {
       price: "$38.000",
       tag: "Signature",
       extras: ["Término al gusto", "450 g aprox.", "Incluye salsa de la casa"],
-      img: null
+      img: "carne-churrasco.jpg"
     },
     {
       name: "Costilla BBQ Ahumada",
@@ -1220,7 +1414,7 @@ const menu = {
       price: "$42.000",
       tag: "Popular",
       extras: ["600 g de costilla", "Glaseado artesanal", "Marinado 24h"],
-      img: null
+      img: "carne-costilla.jpg"
     },
     {
       name: "Pollo al Ajillo Brasa",
@@ -1228,7 +1422,7 @@ const menu = {
       price: "$28.000",
       tag: "Fresco",
       extras: ["300 g", "Pollo de granja"],
-      img: null
+      img: "carne-pollo.jpg"
     },
     {
       name: "Lomo de Cerdo Encostrado",
@@ -1236,7 +1430,7 @@ const menu = {
       price: "$34.000",
       tag: "Chef",
       extras: ["400 g", "Salsa de moras silvestres"],
-      img: null
+      img: "carne-lomo.jpg"
     },
     {
       name: "Punta de Anca",
@@ -1244,7 +1438,7 @@ const menu = {
       price: "$45.000",
       tag: "Premium",
       extras: ["500 g", "Sal de Maras", "Término: medio o al punto"],
-      img: null
+      img: "carne-punta.jpg"
     },
     {
       name: "Parrillada Para Dos",
@@ -1252,7 +1446,7 @@ const menu = {
       price: "$75.000",
       tag: "Para 2",
       extras: ["1.2 kg total", "4 acompañantes", "Recomendado"],
-      img: null
+      img: "carne-parrillada.jpg"
     },
   ],
   entradas: [
@@ -1262,7 +1456,7 @@ const menu = {
       price: "$8.000",
       tag: "Clásico",
       extras: ["Porción x6", "Salsa ají amarillo"],
-      img: null
+      img: "entrada-bunuelos.jpg"
     },
     {
       name: "Chorizo Artesanal",
@@ -1270,7 +1464,7 @@ const menu = {
       price: "$14.000",
       tag: "Artesanal",
       extras: ["x3 unidades", "Con ají y limón"],
-      img: null
+      img: "entrada-chorizo.jpg"
     },
     {
       name: "Tabla de Quesos y Embutidos",
@@ -1278,7 +1472,7 @@ const menu = {
       price: "$22.000",
       tag: "Compartir",
       extras: ["Para 2 personas", "5 variedades"],
-      img: null
+      img: "entrada-tabla.jpg"
     },
     {
       name: "Papas Rústicas al Horno",
@@ -1286,7 +1480,7 @@ const menu = {
       price: "$10.000",
       tag: "Veggie",
       extras: ["4 unidades medianas"],
-      img: null
+      img: "entrada-papas.jpg"
     },
   ],
   acompanantes: [
@@ -1296,7 +1490,7 @@ const menu = {
       price: "$7.000",
       tag: "",
       extras: [],
-      img: null
+      img: "acomp-yuca.jpg"
     },
     {
       name: "Ensalada Verde de Temporada",
@@ -1304,7 +1498,7 @@ const menu = {
       price: "$9.000",
       tag: "Fresco",
       extras: ["Sin gluten"],
-      img: null
+      img: "acomp-ensalada.jpg"
     },
     {
       name: "Arroz de la Casa",
@@ -1312,41 +1506,105 @@ const menu = {
       price: "$6.000",
       tag: "",
       extras: [],
-      img: null
+      img: "acomp-arroz.jpg"
     },
   ],
   bebidas: [
     {
-      name: "Limonada de Coco",
-      desc: "Limonada natural con leche de coco fresco, menta y hielo granizado. Refrescante y cremosa.",
-      price: "$9.000",
-      tag: "Signature",
-      extras: ["400 ml", "Con o sin azúcar"],
-      img: null
-    },
-    {
-      name: "Agua de Panela con Limón",
-      desc: "Bebida tradicional colombiana elaborada con panela negra del Huila y limón mandarina.",
-      price: "$5.000",
-      tag: "Tradicional",
-      extras: ["Fría o caliente"],
-      img: null
-    },
-    {
-      name: "Café de Filtro Origen",
-      desc: "Café de origen único, filtrado en v60, notas de cacao, caramelo y frutos rojos.",
+      name: "Cocacola 1.5",
+      desc: "Coca-Cola 1.5 litros, perfecta para compartir en la mesa.",
       price: "$7.000",
-      tag: "Café",
-      extras: ["150 ml", "Huila / Nariño"],
-      img: null
+      tag: "",
+      extras: [],
+      img: "bebida-cocacola.jpg"
     },
     {
-      name: "Cerveza Artesanal",
-      desc: "Selección rotativa de cervezas artesanales locales. Consultar variedad del día.",
-      price: "$12.000",
-      tag: "Local",
-      extras: ["330 ml"],
-      img: null
+      name: "Cuatro 1.5",
+      desc: "Cuatro litros, bebida refrescante para compartir.",
+      price: "$7.000",
+      tag: "",
+      extras: [],
+      img: "bebida-cuatro.jpg"
+    },
+    {
+      name: "Hit Caja",
+      desc: "Hit en presentación caja.",
+      price: "$6.000",
+      tag: "",
+      extras: [],
+      img: "bebida-hit.jpg"
+    },
+    {
+      name: "Hit Personal",
+      desc: "Hit personal, refrescante y natural.",
+      price: "$3.500",
+      tag: "",
+      extras: [],
+      img: "bebida-hit.jpg"
+    },
+    {
+      name: "Sprit Personal",
+      desc: "Sprite personal.",
+      price: "$3.500",
+      tag: "",
+      extras: [],
+      img: "bebida-soda.jpg"
+    },
+    {
+      name: "Cuatro Personal",
+      desc: "Cuatro personal.",
+      price: "$3.500",
+      tag: "",
+      extras: [],
+      img: "bebida-cuatro.jpg"
+    },
+    {
+      name: "Cocacola Personal",
+      desc: "Coca-Cola personal.",
+      price: "$3.500",
+      tag: "",
+      extras: [],
+      img: "bebida-cocacola.jpg"
+    },
+    {
+      name: "Pony Malta Personal",
+      desc: "Pony Malta personal, clásica y energizante.",
+      price: "$2.500",
+      tag: "Clásico",
+      extras: [],
+      img: "bebida-ponymalta.jpg"
+    },
+    {
+      name: "Pony Malta Mini",
+      desc: "Pony Malta en presentación mini.",
+      price: "$1.600",
+      tag: "",
+      extras: [],
+      img: "bebida-ponymalta.jpg"
+    },
+    {
+      name: "Soda",
+      desc: "Soda refrescante.",
+      price: "$3.500",
+      tag: "",
+      extras: [],
+      img: "bebida-soda.jpg"
+    },
+    {
+      name: "Coronita",
+      desc: "Cerveza Coronita fría.",
+      price: "$4.000",
+      tag: "Cerveza",
+      extras: [],
+      img: "bebida-coronita.jpg"
+    },
+    {
+      name: "Agua",
+      desc: "Agua natural.",
+      price: "$2.500",
+      tag: "",
+      extras: [],
+      img: "bebida-agua.jpg"
     },
   ],
   postres: [
@@ -1356,7 +1614,7 @@ const menu = {
       price: "$11.000",
       tag: "Caliente",
       extras: ["Con helado", "Salsa de caramelo"],
-      img: null
+      img: "postre-brownie.jpg"
     },
     {
       name: "Buñuelo con Arequipe",
@@ -1364,7 +1622,7 @@ const menu = {
       price: "$8.000",
       tag: "Clásico",
       extras: ["x3 unidades"],
-      img: null
+      img: "postre-bunuelo.jpg"
     },
   ],
 };
@@ -1373,16 +1631,17 @@ const menu = {
 function enterMenu() {
   const ws = document.getElementById('welcomeScreen');
   ws.classList.add('exit');
-  ws.addEventListener('animationend', () => {
-    ws.style.display = 'none';
-    document.body.style.overflow = '';
-  }, { once: true });
+  setTimeout(() => { ws.style.display = 'none'; document.body.style.overflow = ''; }, 900);
 }
 
 // Prevent scroll while welcome is visible
 document.body.style.overflow = 'hidden';
 
 // ── Render cards ──────────────────────────────────────────
+function noImgHTML(size) {
+  return `<div class="no-img"><svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="#c45c00" stroke-width="1"><path d="M17 8C8 10 5.9 16.17 3.82 22L5.71 22L6.66 19H17.33L18.28 22H20.18C18.1 16.17 16 10 17 8Z"/></svg></div>`;
+}
+
 function renderAll() {
   for (const [section, items] of Object.entries(menu)) {
     const grid = document.getElementById(`grid-${section}`);
@@ -1392,14 +1651,22 @@ function renderAll() {
       const card = document.createElement('div');
       card.className = 'menu-card';
       card.style.animationDelay = `${i * 0.06}s`;
-      card.innerHTML = `
-        <div class="card-img-wrap">
-          <div class="no-img">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c45c00" stroke-width="1">
-              <path d="M17 8C8 10 5.9 16.17 3.82 22L5.71 22L6.66 19H17.33L18.28 22H20.18C18.1 16.17 16 10 17 8Z"/>
-            </svg>
-          </div>
-        </div>
+
+      const imgWrap = document.createElement('div');
+      imgWrap.className = 'card-img-wrap';
+      if (item.img) {
+        const img = document.createElement('img');
+        img.src = item.img;
+        img.alt = item.name;
+        img.loading = 'lazy';
+        img.onerror = function() { this.parentElement.innerHTML = noImgHTML(40); };
+        imgWrap.appendChild(img);
+      } else {
+        imgWrap.innerHTML = noImgHTML(40);
+      }
+
+      card.appendChild(imgWrap);
+      card.innerHTML += `
         <div class="card-body">
           <p class="card-name">${item.name}</p>
           <p class="card-desc">${item.desc.substring(0, 80)}…</p>
@@ -1421,7 +1688,6 @@ function showSection(id, btn) {
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
-  // scroll active button into center view
   btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
@@ -1442,6 +1708,11 @@ function showSection(id, btn) {
 
 // ── Modal ──────────────────────────────────────────────────
 const sectionLabels = {
+  hamburguesas: 'Hamburguesas',
+  picadas: 'Picadas',
+  perro: 'Perro Caliente',
+  salchipollo: 'Salchipollo',
+  choripollo: 'Choripollo',
   carnes: 'Carnes a las Brasas',
   entradas: 'Entradas',
   acompanantes: 'Acompañantes',
@@ -1460,18 +1731,21 @@ function openModal(item, section) {
     `<div class="modal-extra-row"><span class="dot"></span>${e}</div>`
   ).join('');
 
-  // Image
   const imgSide = document.getElementById('modalImgSide');
-  imgSide.innerHTML = `
-    <div class="no-img">
-      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#c45c00" stroke-width="0.8">
-        <path d="M17 8C8 10 5.9 16.17 3.82 22L5.71 22L6.66 19H17.33L18.28 22H20.18C18.1 16.17 16 10 17 8Z"/>
-        <path d="M12 2a5 5 0 0 1 0 10"/>
-        <circle cx="12" cy="5" r="1.5"/>
-      </svg>
-    </div>
-    <div class="blur-band"></div>
-  `;
+  imgSide.innerHTML = '';
+  if (item.img) {
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;filter:brightness(0.75) saturate(0.9);';
+    img.onerror = function() { imgSide.innerHTML = noImgHTML(80); };
+    imgSide.appendChild(img);
+  } else {
+    imgSide.innerHTML = noImgHTML(80);
+  }
+  const band = document.createElement('div');
+  band.className = 'blur-band';
+  imgSide.appendChild(band);
 
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1488,16 +1762,9 @@ function closeModalBtn() {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
 
-// ── Welcome screen ────────────────────────────────────────
-function enterMenu() {
-  const ws = document.getElementById('welcomeScreen');
-  ws.classList.add('exit');
-  setTimeout(() => { ws.style.display = 'none'; document.body.style.overflow = ''; }, 900);
-}
-
 // ── Init ──
 renderAll();
-document.body.style.overflow = 'hidden'; // lock scroll while welcome shows
+document.body.style.overflow = 'hidden';
 </script>
 </body>
 </html>
